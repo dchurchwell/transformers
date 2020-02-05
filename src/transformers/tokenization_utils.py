@@ -1632,6 +1632,9 @@ class PreTrainedTokenizerFast(PreTrainedTokenizer):
         self._update_special_tokens()
         return added
 
+    def tokenize(self, text, **kwargs):
+        return self.tokenizer._tokenizer.encode(text).tokens
+
     def encode_plus(
         self,
         text,
